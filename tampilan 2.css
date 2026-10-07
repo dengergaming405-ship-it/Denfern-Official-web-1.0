@@ -1,0 +1,177 @@
+*,
+html{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    min-height: 100%;
+    background: #000;
+}
+
+body{
+     background-image: url('background\ 1.png'); /* background 1.png */
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+     min-height: 100vh;
+     min-height: 100dvh;
+     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+     overflow-x: hidden;
+}
+
+/* ===== LAYAR TRANSISI ANTAR HALAMAN ===== */
+.page-transition{
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .45s ease;
+    animation: layarBuka .7s ease;
+}
+
+body.is-leaving .page-transition{
+    opacity: 1;
+    pointer-events: all;
+}
+
+body.is-leaving .kartu-wa,
+body.is-leaving .wa1-div{
+    transform: scale(.96);
+    transition: transform .45s ease;
+}
+
+@keyframes layarBuka{
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+@keyframes munculAtas{
+    from { opacity: 0; transform: translateY(-30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes munculBawah{
+    from { opacity: 0; transform: translateY(40px) scale(.95); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes melayang{
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-8px); }
+}
+
+/* ===== NAVIGATION-BAR ===== */
+.wa1-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+}
+
+.wa1-ul{
+    display: flex;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+}
+
+.wa1-li{
+    list-style: none;
+    animation: munculAtas .8s ease backwards;
+}
+
+/* Tombol BACK HOME */
+.Link-home{
+    display: inline-block;
+    padding: 12px 28px;
+    background: rgba(0, 0, 0, 0.65);
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border: 2px solid aliceblue;
+    border-radius: 50px;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+.Link-home:hover{
+    background: aliceblue;
+    color: black;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5);
+}
+
+.Link-home:active{
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== KARTU NOMOR WA ===== */
+.kartu-wa{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    width: fit-content;
+    max-width: 90%;
+    margin: 40px auto 0;
+    padding: 28px 40px;
+    background: rgba(0, 0, 0, 0.55);
+    border: 2px solid rgba(255, 255, 255, 0.85);
+    border-radius: 40px;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    animation: munculBawah .9s ease .2s backwards;
+}
+
+.img-wa{
+    height: 80px;
+    width: auto;
+    animation: melayang 3s ease-in-out infinite;
+}
+
+.nomer-saya{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: aliceblue;
+    font-size: 28px;
+    letter-spacing: 1px;
+}
+
+/* ===== RESPONSIF HP ===== */
+@media (max-width: 480px){
+    .Link-home{
+        padding: 10px 22px;
+        font-size: 14px;
+    }
+    .kartu-wa{
+        padding: 22px 20px;
+        margin-top: 24px;
+    }
+    .img-wa{
+        height: 64px;
+    }
+    .nomer-saya{
+        font-size: 20px;
+    }
+}
+
+/* Hormati pengguna yang mematikan animasi di perangkatnya */
+@media (prefers-reduced-motion: reduce){
+    *{
+        animation: none !important;
+        transition: none !important;
+    }
+}

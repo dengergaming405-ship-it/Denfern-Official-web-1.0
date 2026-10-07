@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+         <meta charset="UTF-8">
+         <title>DENFERN OFFICIAL</title>
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <link rel="stylesheet" href="tampilan 2.css">
+    </head>
+    <body>
+
+        <!-- LAYAR TRANSISI -->
+        <div class="page-transition"></div>
+
+        <!-- NAVIGATION-BAR -->
+        <div class="wa1-div">
+            <ul class="wa1-ul">
+                <li class="wa1-li">
+                    <a href="Denfern Official.HTML" class="Link-home">&#8592; BACK HOME</a>
+                </li>
+            </ul>
+        </div>
+        <!-- NAVIGATION-BAR CLEAR -->
+
+        <!-- nomer 1 -->
+        <div class="kartu-wa">
+            <img src="WhatsApp.png" class="img-wa" alt="WhatsApp" />
+            <h1 class="nomer-saya">NOMER WHATSAPP: 858-4277-6158</h1>
+        </div>
+        <!-- nomer 1 clear -->
+
+        <!-- ANIMASI PINDAH HALAMAN -->
+        <script>
+            document.addEventListener('click', function (e) {
+                var a = e.target.closest('a');
+                if (!a) return;
+                var href = a.getAttribute('href');
+                if (!href || href.charAt(0) === '#' || a.target === '_blank' ||
+                    e.ctrlKey || e.metaKey || e.shiftKey) return;
+                e.preventDefault();
+                document.body.classList.add('is-leaving');
+                setTimeout(function () { window.location.href = a.href; }, 450);
+            });
+            window.addEventListener('pageshow', function (e) {
+                if (e.persisted) document.body.classList.remove('is-leaving');
+            });
+        </script>
+
+    </body>
+</html>

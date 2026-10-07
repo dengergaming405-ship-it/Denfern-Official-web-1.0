@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+         <meta charset="UTF-8">
+         <title>DENFERN OFFICIAL</title>
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <link rel="stylesheet" href="tampilan 1.css">
+    </head>
+    <body>
+
+        <!-- LAYAR TRANSISI -->
+        <div class="page-transition"></div>
+
+        <!-- NAVIGATION-BAR -->
+         <div class="div-no1">
+            <ul class="ul-no1">
+                <li class="li-no1">HELLO WELCOME TO DENFERN OFFICIAL</li>
+            </ul>
+         </div>
+         <!-- NAVIGATION-BAR CLEAR -->
+
+         <!-- KONTEN NO-1 -->
+          <div class="konten-1">
+            <a href="https://youtube.com/@denfernlive?si=AlYfnnSB36nP6rww" class="link-yt">
+            <img src="Youtube.png" class="img-1" alt="YouTube" />
+            <p>CHANNEL YT</p>
+            </a>
+
+            <a href="https://sociabuzz.com/denfern/tribe" class="link-donate">
+            <img src="sociabuzz.png" class="img-2" alt="Sociabuzz" />
+            <p>DONATE DISINI</p>
+            </a>
+
+            <a href="nomer wa.HTML" class="link-wa">
+            <img src="WhatsApp.png" class="img-3" alt="WhatsApp" />
+            <p>NOMER SAYA</p>
+            </a>
+          </div>
+          <!-- KONTEN NO-1 CLEAR -->
+
+        <!-- ANIMASI PINDAH HALAMAN -->
+        <script>
+            document.addEventListener('click', function (e) {
+                var a = e.target.closest('a');
+                if (!a) return;
+                var href = a.getAttribute('href');
+                if (!href || href.charAt(0) === '#' || a.target === '_blank' ||
+                    e.ctrlKey || e.metaKey || e.shiftKey) return;
+                e.preventDefault();
+                document.body.classList.add('is-leaving');
+                setTimeout(function () { window.location.href = a.href; }, 450);
+            });
+            // Saat tombol back browser ditekan, hilangkan layar transisi
+            window.addEventListener('pageshow', function (e) {
+                if (e.persisted) document.body.classList.remove('is-leaving');
+            });
+        </script>
+
+    </body>
+</html>
